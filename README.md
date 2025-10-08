@@ -6,3 +6,4 @@ request for medicine and get a proper medicine
  
 # open and change
 yes 
+git
