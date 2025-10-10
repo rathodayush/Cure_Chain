@@ -5,5 +5,4 @@ medicine donation and request portal
 request for medicine and get a proper medicine 
  
 # open and change
-yes 
-git
+# add today header tag
