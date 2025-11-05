@@ -1,4 +1,48 @@
-body {
+ body {
     font-family: 'Roboto', sans-serif;
-    /* j */
+    
+    
+}
+
+.navbar-nav li {
+    padding-left: 3rem;
+    
+}
+
+#navbar{
+     background-color: white;
+     border-bottom: 1px solid black;
+}
+
+#plusicon{
+    /* background-color: white; */
+    color: black;
+}
+.iconplus{
+    padding-top: 0.5rem;
+}
+ 
+.navbar-nav li a {
+    color: black;
+    font-weight: 400;
+    font-size: smaller;
+    
+}
+.navbar-nav li a i {
+    color: rgb(29, 1, 1);
+    /* padding-right: ; */
+
+
+
+}
+.navbar-nav li a:hover {
+    background-color: #ebe7e7;
+    /* box-shadow: 0 0 12px #c5bcbc; */
+    border-radius: 6px;
+    color: black;
+    /* transform: scale(1.02); */
+    
+
+    
+
 }
