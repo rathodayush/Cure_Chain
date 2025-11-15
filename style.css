@@ -379,13 +379,74 @@
      height: 2.5rem;
      margin-right: 0.7rem;
 
-    }
- 
- 
- 
-  }
+   }
 
-.d-flex span i {
+
+
+ }
+
+ /* @media (max-width: 480px) {
+   .divouter {
+     /* margin: 0.1px; */
+     /* padding: 0; */
+     /* background-color: white;
+     height: 8rem;
+     width: 8rem; */
+     /* border: none; */
+     /* box-shadow: 1px 1px 1px 1px gray; */
+
+   /* } */
+
+   /* .innerdiv {
+     /* background-color: #00BFFF; */
+     /* height: 2.4rem;
+     width: 2.4rem;
+     position: relative;
+     right: 4.5rem; */ */
+
+/* 
+   }
+
+   .divouter i {
+     font-size: 1.3rem;
+     display: flex;
+     justify-content: center;
+     margin-top: 0rem;
+
+
+   } */
+
+   /* .divouter h6 {
+     font-size: 0.7rem;
+     margin-left: 0rem;
+
+
+   }
+
+   .headingdiv h1 {
+     font-size: 1.4rem;
+     margin-top: 2.5rem;
+     margin-bottom: 1rem;
+   } */
+
+   /* .only-mo-icon {
+    height: 1.4rem !important;
+    margin-left: 1rem !important;
+    margin-right: 0rem;
+    
+   }
+   
+   .maindiv {
+    margin-left: 1.2rem;
+   } */
+
+
+
+  /* } */
+
+
+
+ .d-flex span i {
    position: relative;
    left: 0.6rem;
    top: 0.5rem;
@@ -399,7 +460,7 @@
    margin-top: 0.4rem;
  }
 
- 
+
 
  .carousel {
    margin-top: 4.5rem;
@@ -434,3 +495,4 @@
 
 
  /* today add progess details css final */
+ /* add login page */

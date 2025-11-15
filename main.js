@@ -12,3 +12,49 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+//login page ke liye 
+
+const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    loginBtn.addEventListener('click', () => {
+        loginBtn.classList.add('active-tab');
+        registerBtn.classList.remove('active-tab');
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+    });
+
+    registerBtn.addEventListener('click', () => {
+        registerBtn.classList.add('active-tab');
+        loginBtn.classList.remove('active-tab');
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+    });
+
+    //document verifation ke liye
+
+    function checkDocument() {
+    let file = document.getElementById("docFile").files[0];
+    let msg = document.getElementById("msg");
+
+    if (!file) {
+        msg.innerText = "Please upload a document.";
+        return;
+    }
+
+    // Example: Only allow PDF
+    if (file.type !== "application/pdf") {
+        msg.innerText = "Only PDF allowed!";
+        return;
+    }
+
+    // If correct
+    msg.innerText = "";
+    document.getElementById("step1").classList.remove("active");
+    document.getElementById("step2").classList.add("active");
+}
+
+// add login page
