@@ -58,3 +58,24 @@ const loginBtn = document.getElementById('loginBtn');
 }
 
 // add login page
+
+//acsess login button
+
+// let loginbotton = document.getElementById("carousel-buttons");
+
+// loginbotton.addEventListener("click", function () {
+//     window.location.href = "ngo.html";
+// });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const loginBtn = document.getElementById("carousel-buttons");
+//     if (loginBtn) {
+//         loginBtn.addEventListener("click", function () {
+//             window.location.href = "login.html";
+//         });
+//     }
+// });
+
+// document.getElementById("carousel-buttons").onclick = function () {
+//     window.location.href = "login.html";
+// };

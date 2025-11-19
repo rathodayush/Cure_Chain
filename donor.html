@@ -65,7 +65,7 @@
     <!-- Toggle Buttons -->
     <div class="d-flex justify-content-center gap-2 mb-3">
         <button id="loginBtn" class="tab-btn active-tab">Login</button>
-        <button id="registerBtn" class="tab-btn">Register NGO</button>
+        <button id="registerBtn" class="tab-btn">Register Donor</button>
     </div>
 
     <!-- LOGIN FORM -->
@@ -73,17 +73,20 @@
         <h5 class="mb-3">Login</h5>
         <input class="form-control mb-3" type="email" placeholder="Email">
         <input class="form-control mb-3" type="password" placeholder="Password">
-        <button class="btn w-50">Login</button>
+        <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+    <button class="btn btn-primary">Login</button>
+    
+</div>
     </div>
 
     <!-- REGISTER FORM -->
     <div id="registerForm" class="form-box" style="display:none;">
-        <h5 class="mb-3">Register Your NGO</h5>
-        <p >Create an account to start requesting medicines safaily</p>
+        <h5 class="mb-3">Register As a Donner</h5>
+        <p >Create an account to start donating medicines safaily</p>
 
         <div class="row g-2">
-            <div class="col-6"><input class="form-control" placeholder="NGO Name"></div>
-            <div class="col-6"><input class="form-control" placeholder="Registration Number"></div>
+            <input class="form-control mt-3" placeholder="donor Name">
+            <!-- <div class="col-6"><input class="form-control" placeholder="Registration Number"></div> -->
         </div>
 
         <input class="form-control mt-3" type="email" placeholder="Email">
@@ -93,13 +96,14 @@
             <div class="col-6"><input class="form-control" type="password" placeholder="Confirm Password"></div>
         </div>
 
-        <div class="row g-2 mt-2">
-            <div class="col-6"><input class="form-control" placeholder="Contact Person"></div>
-            <div class="col-6"><input class="form-control" placeholder="Phone"></div>
-        </div>
+        
+            <!-- <div class="col-6"><input class="form-control" placeholder="Contact Person"></div> -->
+            <input class="form-control mt-3" placeholder="Phone">
+        
 
         <input class="form-control mt-3" placeholder="Address">
-        <textarea class="form-control mt-3" placeholder="NGO Description"></textarea>
+        <!-- <textarea class="form-control mt-3" placeholder="NGO Description"></textarea> -->
+         <div class="col-6 mt-3"><input class="form-control" placeholder="age"></div>
 
         <!-- STEP 1 : Upload Document -->
 <div id="step1" class="step active">
@@ -117,7 +121,12 @@
     <button class="btn btn-success">Submit</button>
 </div>
 
-        <button class="btn w-50 mt-3">Register NGO</button>
+        <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+    <button class="btn btn-primary">rasiter</button>
+    <a href="ngo.html">
+    <button class="btn btn-success">Join as NGO</button>
+    </a>
+</div>
         <div class="container mt-3">
 <div class="p-3 rounded" style="background:#e8f4ff; border-left:4px solid #007bff; font-size: 13px;" >
 <p class="mb-0 text-center">Please ensure the donated medicines are in good condition and not expired.</p>

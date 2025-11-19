@@ -44,6 +44,7 @@ body{
 .btn:hover {
     /* color: red; */
     background-color: #8bd7f0;
+    color: black;
 }
  
 /* document verification ke liye */
@@ -52,6 +53,15 @@ body{
 
 
 /* add login page */
+
+/* button:active,
+.btn:active,
+button:focus,
+.btn:focus {
+    background-color: #8bd7f0 !important; /* Same color hi rahega */
+    /* box-shadow: none !important; */
+
+
 
 
 
