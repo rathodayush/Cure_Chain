@@ -79,3 +79,4 @@ const loginBtn = document.getElementById('loginBtn');
 // document.getElementById("carousel-buttons").onclick = function () {
 //     window.location.href = "login.html";
 // };
+
