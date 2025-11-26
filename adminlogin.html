@@ -1,0 +1,526 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+
+  <style>
+    body {
+      background: #8bd7f0;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 25px;
+      width: 400px;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #0002;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 85%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    button {
+      width: 70%;
+      padding: 10px;
+      border: none;
+      background: #8bd7f0;
+      color: #000;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: #74c8e6;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 8px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+    <h2>Admin Login</h2>
+
+    <input type="email" id="email" placeholder="Enter Email" />
+    <input type="password" id="password" placeholder="Enter Password" />
+
+    <button onclick="loginAdmin()">Login</button>
+
+    <p class="error" id="error">Invalid Email or Password</p>
+  </div>
+
+  <script src="main.js">
+    // function loginAdmin() {
+    //   let email = document.getElementById("email").value.trim();
+    //   let pass = document.getElementById("password").value.trim();
+
+    //   if (email === "rathodayush361@gmail.com" && pass === "ayush361@") {
+    //     window.location.href = "admin-panel.html";
+    //   } else {
+    //     document.getElementById("error").style.display = "block";
+    //   }
+    // }
+  </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CureChain — Admin (Single File)</title>
+
+  <!-- Bootstrap for quick responsive layout -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{--brand:#8bd7f0;--muted:#6c757d}
+    body{font-family:Inter,system-ui,Arial;background:#f4fbfd;margin:0}
+    /* LOGIN */
+    #loginScreen{height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#dff6fb, #cfeef9)}
+    .login-card{background:#fff;padding:26px;border-radius:12px;box-shadow:0 8px 30px rgba(3,33,36,0.06);width:360px;max-width:92%}
+    .login-card h3{margin-bottom:10px}
+    .brand-logo{width:54px;height:54px;border-radius:8px;object-fit:cover;border:2px solid rgba(0,0,0,0.04)}
+    .error{display:none;color:#d9534f;margin-top:10px}
+
+    /* PANEL */
+    #adminPanel{display:none;min-height:100vh}
+    .topbar{background:var(--brand);padding:12px 18px;color:#042f3a;display:flex;justify-content:space-between;align-items:center}
+    .top-left{display:flex;align-items:center;gap:12px}
+    .welcome-name{font-weight:800}
+    .content{padding:18px}
+    .card-stat{border-radius:10px;padding:14px;background:#fff;box-shadow:0 6px 18px rgba(11,35,40,0.04)}
+    .small-muted{color:var(--muted);font-size:13px}
+
+    /* Tables */
+    .table thead th{border-bottom:0}
+    .avatar-sm{width:40px;height:40px;border-radius:6px;object-fit:cover}
+
+    /* Responsive small tweaks */
+    @media (max-width:767px){
+      .topbar{flex-direction:column;gap:8px;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen">
+    <div class="login-card">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <!-- Developer-supplied file used as logo/avatar -->
+        <img src="/mnt/data/Screenshot (136).png" alt="logo" class="brand-logo">
+        <div>
+          <h3 class="mb-0">CureChain Admin</h3>
+          <div class="small-muted">Sign in to manage donations</div>
+        </div>
+      </div>
+
+      <label class="form-label">Email</label>
+      <input id="loginEmail" class="form-control mb-2" type="email" placeholder="admin@email.com">
+
+      <label class="form-label">Password</label>
+      <input id="loginPassword" class="form-control mb-2" type="password" placeholder="••••••••">
+
+      <button id="loginBtn" class="btn" style="background:var(--brand);font-weight:700;color:#042f3a;width:100%;margin-top:8px">Login</button>
+
+      <p class="error" id="loginError">Invalid email or password</p>
+
+      <div class="small-muted mt-3" style="font-size:13px">
+        Demo credentials: <strong>rathodayush361@gmail.com</strong> / <strong>ayush361@</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="adminPanel">
+    <div class="topbar">
+      <div class="top-left">
+        <img src="/mnt/data/Screenshot (136).png" alt="avatar" class="avatar-sm">
+        <div>
+          <div class="welcome-name" id="welcomeText">Welcome</div>
+          <div class="small-muted" id="welcomeSub">Admin</div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <div class="small-muted text-end me-2">
+          <div style="font-weight:700" id="adminEmailDisplay">admin@curechain.org</div>
+          <div style="font-size:13px">Administrator</div>
+        </div>
+        <button id="logoutBtn" class="btn btn-outline-dark btn-sm">Logout</button>
+      </div>
+    </div>
+
+    <div class="content container-fluid">
+      <!-- Quick stats -->
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-4">
+          <div class="card-stat">
+            <div class="small-muted">Total Donations</div>
+            <div style="font-size:20px;font-weight:800" id="statDonations">0</div>
+            <div class="small-muted">Last 30 days: <span id="stat30">0</span></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card-stat">
+            <div class="small-muted">Registered Donors</div>
+            <div style="font-size:20px;font-weight:800" id="statDonors">0</div>
+            <div class="small-muted">Active: <span id="statActiveDonors">0</span></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card-stat">
+            <div class="small-muted">Registered NGOs</div>
+            <div style="font-size:20px;font-weight:800" id="statNgos">0</div>
+            <div class="small-muted">Verified: <span id="statVerifiedNgos">0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donations table -->
+      <div class="row">
+        <div class="col-12 col-xl-8 mb-3">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5 class="mb-0">Recent Donations</h5>
+              <small class="small-muted">Click "View" for full details</small>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-hover" id="donationsTable">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Donor</th>
+                    <th>Medicine</th>
+                    <th>Qty</th>
+                    <th>Expiry</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Filled by JS -->
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right column: Donors + NGOs -->
+        <div class="col-12 col-xl-4">
+          <div class="card p-3 mb-3">
+            <h6>Registered Donors</h6>
+            <div class="table-responsive" style="max-height:240px;overflow:auto">
+              <table class="table table-borderless mb-0" id="donorsTable">
+                <thead class="small-muted">
+                  <tr><th>Name</th><th>Phone</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="small-muted mt-2">Total donors: <span id="donorsCount">0</span></div>
+          </div>
+
+          <div class="card p-3">
+            <h6>Registered NGOs</h6>
+            <div class="table-responsive" style="max-height:240px;overflow:auto">
+              <table class="table table-borderless mb-0" id="ngosTable">
+                <thead class="small-muted">
+                  <tr><th>NGO</th><th>ID</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="small-muted mt-2">Total NGOs: <span id="ngosCount">0</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Detail Modal -->
+  <div class="modal fade" id="donationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background:var(--brand)">
+          <h5 class="modal-title">Donation Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Filled dynamically -->
+          <div class="row">
+            <div class="col-md-6">
+              <h6 id="modalMedicine">Medicine Name</h6>
+              <p class="small-muted" id="modalDonor">Donor: </p>
+              <p id="modalQty">Quantity:</p>
+              <p id="modalBatch">Batch No:</p>
+              <p id="modalExpiry">Expiry:</p>
+              <p id="modalCondition">Condition:</p>
+              <p id="modalNotes"></p>
+            </div>
+            <div class="col-md-6">
+              <h6>Goli / Pill Details</h6>
+              <p id="modalPillType">Type:</p>
+              <p id="modalStrength">Strength:</p>
+              <p id="modalForm">Form (tablet/syrup):</p>
+
+              <h6 class="mt-3">Photos</h6>
+              <div class="d-flex gap-2" id="modalPhotos">
+                <!-- images -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button id="acceptDonation" class="btn btn-success">Accept</button>
+          <button id="rejectDonation" class="btn btn-danger">Reject</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap + JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Demo credentials (from you)
+    const ADMIN_EMAIL = "rathodayush361@gmail.com";
+    const ADMIN_PASS = "ayush361@";
+
+    // Sample data arrays (in real app these come from backend)
+    let donations = [
+      {
+        id: 1,
+        donorName: "Rahul Sharma",
+        donorPhone: "9876543210",
+        medicine: "Paracetamol",
+        qty: "100 tabs",
+        expiry: "2026-03-01",
+        batch: "P-2345",
+        condition: "Unopened",
+        pill: { type: "Tablet", strength: "500 mg", form: "Tablet" },
+        notes: "Stored in cool dry place.",
+        photos: ["/mnt/data/Screenshot (136).png"],
+        status: "Pending"
+      },
+      {
+        id: 2,
+        donorName: "Sita Devi",
+        donorPhone: "9123456780",
+        medicine: "Vitamin D Syrup",
+        qty: "2 bottles",
+        expiry: "2025-08-10",
+        batch: "VIT-198",
+        condition: "Unopened",
+        pill: { type: "Syrup", strength: "100 ml", form: "Syrup" },
+        notes: "Original seal intact.",
+        photos: ["/mnt/data/Screenshot (136).png"],
+        status: "Pending"
+      }
+    ];
+
+    let donors = [
+      { name: "Rahul Sharma", phone: "9876543210", email: "rahul@example.com" },
+      { name: "Sita Devi", phone: "9123456780", email: "sita@example.com" }
+    ];
+
+    // NGOs with assigned IDs (we generate)
+    let ngos = [
+      { name: "Helping Hands", email: "help@hands.org", id: "NGO-001", verified: true },
+      { name: "Smile Foundation", email: "contact@smile.org", id: "NGO-002", verified: false }
+    ];
+
+    // --- Login logic ---
+    document.getElementById('loginBtn').addEventListener('click', function(){
+      const e = document.getElementById('loginEmail').value.trim();
+      const p = document.getElementById('loginPassword').value.trim();
+      if (e === ADMIN_EMAIL && p === ADMIN_PASS) {
+        // show admin panel (no reload)
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+
+        // populate data & welcome
+        document.getElementById('welcomeText').innerText = "Welcome Ayush Rathod";
+        document.getElementById('adminEmailDisplay').innerText = ADMIN_EMAIL;
+        refreshAll();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', function(){
+      document.getElementById('adminPanel').style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'flex';
+      // clear fields
+      document.getElementById('loginPassword').value = '';
+    });
+
+    // Refresh UI lists & stats
+    function refreshAll(){
+      // stats
+      document.getElementById('statDonations').innerText = donations.length;
+      document.getElementById('stat30').innerText = donations.filter(d => true).length; // demo
+      document.getElementById('statDonors').innerText = donors.length;
+      document.getElementById('donorsCount').innerText = donors.length;
+      document.getElementById('statNgos').innerText = ngos.length;
+      document.getElementById('ngosCount').innerText = ngos.length;
+      document.getElementById('statVerifiedNgos').innerText = ngos.filter(n=>n.verified).length;
+      document.getElementById('statActiveDonors').innerText = donors.length;
+
+      // donations table
+      const tbody = document.querySelector('#donationsTable tbody');
+      tbody.innerHTML = '';
+      donations.forEach((d, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${d.id}</td>
+          <td>${escapeHtml(d.donorName)}</td>
+          <td>${escapeHtml(d.medicine)}</td>
+          <td>${escapeHtml(d.qty)}</td>
+          <td>${escapeHtml(d.expiry)}</td>
+          <td><span class="badge ${d.status === 'Pending' ? 'bg-info text-dark' : d.status === 'Accepted' ? 'bg-success' : 'bg-danger'}">${d.status}</span></td>
+          <td><button class="btn btn-sm btn-primary viewBtn" data-id="${d.id}">View</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // donors
+      const donorsBody = document.querySelector('#donorsTable tbody');
+      donorsBody.innerHTML = '';
+      donors.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${escapeHtml(d.name)}</td><td>${escapeHtml(d.phone)}</td>`;
+        donorsBody.appendChild(tr);
+      });
+
+      // ngos
+      const ngosBody = document.querySelector('#ngosTable tbody');
+      ngosBody.innerHTML = '';
+      ngos.forEach(n => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${escapeHtml(n.name)}</td><td style="font-weight:700">${escapeHtml(n.id)}</td>`;
+        ngosBody.appendChild(tr);
+      });
+
+      // attach view handlers
+      document.querySelectorAll('.viewBtn').forEach(btn => {
+        btn.addEventListener('click', (ev) => {
+          const id = Number(ev.currentTarget.dataset.id);
+          openDonationModal(id);
+        });
+      });
+    }
+
+    // Open donation modal and fill details
+    function openDonationModal(id){
+      const d = donations.find(x => x.id === id);
+      if (!d) return;
+      document.getElementById('modalMedicine').innerText = d.medicine;
+      document.getElementById('modalDonor').innerText = "Donor: " + d.donorName + " (" + d.donorPhone + ")";
+      document.getElementById('modalQty').innerText = "Quantity: " + d.qty;
+      document.getElementById('modalBatch').innerText = "Batch No: " + d.batch;
+      document.getElementById('modalExpiry').innerText = "Expiry: " + d.expiry;
+      document.getElementById('modalCondition').innerText = "Condition: " + d.condition;
+      document.getElementById('modalNotes').innerText = d.notes || "";
+
+      document.getElementById('modalPillType').innerText = "Type: " + (d.pill.type || '-');
+      document.getElementById('modalStrength').innerText = "Strength: " + (d.pill.strength || '-');
+      document.getElementById('modalForm').innerText = "Form: " + (d.pill.form || '-');
+
+      const photosDiv = document.getElementById('modalPhotos');
+      photosDiv.innerHTML = '';
+      (d.photos || []).forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.width = '120px';
+        img.style.height = '80px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '6px';
+        img.style.border = '1px solid #eee';
+        photosDiv.appendChild(img);
+      });
+
+      // accept/reject button handlers
+      const acceptBtn = document.getElementById('acceptDonation');
+      const rejectBtn = document.getElementById('rejectDonation');
+
+      acceptBtn.onclick = () => { updateDonationStatus(id, 'Accepted'); bootstrap.Modal.getInstance(document.getElementById('donationModal')).hide(); };
+      rejectBtn.onclick = () => { updateDonationStatus(id, 'Rejected'); bootstrap.Modal.getInstance(document.getElementById('donationModal')).hide(); };
+
+      // show modal
+      const modal = new bootstrap.Modal(document.getElementById('donationModal'));
+      modal.show();
+    }
+
+    function updateDonationStatus(id, status) {
+      const d = donations.find(x => x.id === id);
+      if (!d) return;
+      d.status = status;
+      refreshAll();
+      // small toast / alert
+      alert('Donation #' + id + ' marked as ' + status);
+    }
+
+    // utility: escape text to avoid simple injection in demo
+    function escapeHtml(text){
+      if (text === undefined || text === null) return '';
+      return String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    }
+
+    // Initialize (so admin panel ready after login)
+    (function initDemo(){
+      // stats initial
+      refreshAll();
+    })();
+
+  </script>
+</body>
+</html>
+
+
+<!-- 26/11/25 -->
+

@@ -80,3 +80,18 @@ const loginBtn = document.getElementById('loginBtn');
 //     window.location.href = "login.html";
 // };
 
+// add admin system 
+
+function loginAdmin() {
+      let email = document.getElementById("email").value.trim();
+      let pass = document.getElementById("password").value.trim();
+
+      if (email === "rathodayush361@gmail.com" && pass === "ayush361@") {
+        window.location.href = "admin-panel.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
+
+

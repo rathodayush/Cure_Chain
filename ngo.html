@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,84 +57,86 @@
 
   </style> -->
 </head>
+
 <body>
 
-<div class="container py-4 text-center" style="margin-top: 3rem;">
+  <div class="container py-4 text-center" style="margin-top: 3rem;">
     <h2 class="mb-3">Welcome to <span style="color: #00BFFF; font-weight: 600;">CureChain </span></h2>
     <p>Medicine Donation & Request Portal</p>
 
     <!-- Toggle Buttons -->
     <div class="d-flex justify-content-center gap-2 mb-3">
-        <button id="loginBtn" class="tab-btn active-tab">Login</button>
-        <button id="registerBtn" class="tab-btn">Register NGO</button>
+      <button id="loginBtn" class="tab-btn active-tab">Login</button>
+      <button id="registerBtn" class="tab-btn">Register NGO</button>
     </div>
 
     <!-- LOGIN FORM -->
     <div id="loginForm" class="form-box">
-        <h5 class="mb-3">Login</h5>
-        <input class="form-control mb-3" type="email" placeholder="Email">
-        <input class="form-control mb-3" type="password" placeholder="Password">
-        <button class="btn w-50">Login</button>
+      <h5 class="mb-3">Login</h5>
+      <input class="form-control mb-3" type="email" placeholder="Email">
+      <input class="form-control mb-3" type="password" placeholder="Password">
+      <button class="btn w-50">Login</button>
     </div>
 
     <!-- REGISTER FORM -->
     <div id="registerForm" class="form-box" style="display:none;">
-        <h5 class="mb-3">Register Your NGO</h5>
-        <p >Create an account to start requesting medicines safaily</p>
+      <h5 class="mb-3">Register Your NGO</h5>
+      <p>Create an account to start requesting medicines safaily</p>
 
-        <div class="row g-2">
-            <div class="col-6"><input class="form-control" placeholder="NGO Name"></div>
-            <div class="col-6"><input class="form-control" placeholder="Registration Number"></div>
-        </div>
+      <div class="row g-2">
+        <div class="col-6"><input class="form-control" placeholder="NGO Name"></div>
+        <div class="col-6"><input class="form-control" placeholder="Registration Number"></div>
+      </div>
 
-        <input class="form-control mt-3" type="email" placeholder="Email">
+      <input class="form-control mt-3" type="email" placeholder="Email">
 
-        <div class="row g-2 mt-2">
-            <div class="col-6"><input class="form-control" type="password" placeholder="Password"></div>
-            <div class="col-6"><input class="form-control" type="password" placeholder="Confirm Password"></div>
-        </div>
+      <div class="row g-2 mt-2">
+        <div class="col-6"><input class="form-control" type="password" placeholder="Password"></div>
+        <div class="col-6"><input class="form-control" type="password" placeholder="Confirm Password"></div>
+      </div>
 
-        <div class="row g-2 mt-2">
-            <div class="col-6"><input class="form-control" placeholder="Contact Person"></div>
-            <div class="col-6"><input class="form-control" placeholder="Phone"></div>
-        </div>
+      <div class="row g-2 mt-2">
+        <div class="col-6"><input class="form-control" placeholder="Contact Person"></div>
+        <div class="col-6"><input class="form-control" placeholder="Phone"></div>
+      </div>
 
-        <input class="form-control mt-3" placeholder="Address">
-        <textarea class="form-control mt-3" placeholder="NGO Description"></textarea>
+      <input class="form-control mt-3" placeholder="Address">
+      <textarea class="form-control mt-3" placeholder="NGO Description"></textarea>
 
-        <!-- STEP 1 : Upload Document -->
-<div id="step1" class="step active">
-    <h6>Upload Your Document</h6>
-    <input type="file" id="docFile" class="form-control" style="margin-bottom: 0.7rem;">
-    <button class="btn mt-2" onclick="checkDocument()" style="font-size: 13px; ">Verify & Next</button>
-    <p id="msg" class="text-danger mt-2"></p>
-</div>
+      <!-- STEP 1 : Upload Document -->
+      <div id="step1" class="step active">
+        <h6>Upload Your Document</h6>
+        <input type="file" id="docFile" class="form-control" style="margin-bottom: 0.7rem;">
+        <button class="btn mt-2" onclick="checkDocument()" style="font-size: 13px; ">Verify & Next</button>
+        <p id="msg" class="text-danger mt-2"></p>
+      </div>
 
-<!-- STEP 2 : Actual Form -->
-<div id="step2" class="step">
-    <h6>Continue Your Form</h6>
-    <input type="text" class="form-control mb-2" placeholder="Your Name">
-    <input type="email" class="form-control mb-2" placeholder="Email">
-    <button class="btn btn-success">Submit</button>
-</div>
+      <!-- STEP 2 : Actual Form -->
+      <div id="step2" class="step">
+        <h6>Continue Your Form</h6>
+        <input type="text" class="form-control mb-2" placeholder="Your Name">
+        <input type="email" class="form-control mb-2" placeholder="Email">
+        <button class="btn btn-success">Submit</button>
+      </div>
 
-        <button class="btn w-50 mt-3">Register NGO</button>
-        <a href="donor.html">
+      <button class="btn w-50 mt-3">Register NGO</button>
+      <a href="donor.html">
         <button class="btn w-50 mt-3">join as Donor</button>
-        </a>
+      </a>
 
-        <div class="container mt-3">
-<div class="p-3 rounded" style="background:#e8f4ff; border-left:4px solid #007bff; font-size: 13px;" >
-<p class="mb-0 text-center">Please ensure the before request medicines your NGO are varifed.</p>
-</div>
-</div>
+      <div class="container mt-3">
+        <div class="p-3 rounded" style="background:#e8f4ff; border-left:4px solid #007bff; font-size: 13px;">
+          <p class="mb-0 text-center">Please ensure the before request medicines your NGO are varifed.</p>
+        </div>
+      </div>
     </div>
-    
-</div>
 
-<script src="main.js"></script>
+  </div>
+
+  <script src="main.js"></script>
 
 </body>
+
 </html>
 
 <!-- add login button on top -->
