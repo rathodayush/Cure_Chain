@@ -44,15 +44,24 @@
         border-radius:8px;
         font-size:1rem;
         cursor:pointer;
+        position: absolute;
+        left: 50%;
     }
 </style>
 </head>
 
 <body>
 
+   <b><div onclick="window.location.href='index.html'" style="cursor:pointer; padding-left: 5%; padding-top: 3%; size: 10px; display: inline; font-size: 20px;" >←</div></b>
+
+
 <!-- LANGUAGE BUTTONS -->
-<button onclick="showEnglish()" class="lang-btn">English</button>
+ 
+<button onclick="showEnglish()" class="lang-btn" style="position: absolute;
+        left: 42%;">English</button>
+
 <button onclick="showHindi()" class="lang-btn">Hindi</button>
+
 
 
 <!-- ===================== ENGLISH CONTENT ===================== -->
